@@ -1,0 +1,120 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "com.tasa.mareaeventov2",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "crossNavigation": {
+          "inbounds": {
+              "fe-inbound": {
+                  "signature": {
+                      "parameters": {},
+                      "additionalParameters": "allowed"
+                  },
+                  "semanticObject": "mareaeventov2",
+                  "action": "display",
+                  "title": "Detalle de Marea",
+                  "subTitle": "",
+                  "icon": "sap-icon://manager-insight"
+              }
+          }   
+      }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.97.2",
+            "libs": {
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "com.tasa.mareaeventov2.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true,
+                    "groupId": "$direct"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "com.tasa.mareaeventov2.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "Marea",
+                    "view": "Marea",
+                    "pattern": "Marea",
+                    "targetAggregation": "pages",
+                    "controlId": "app"
+                },
+                {
+                    "name": "Evento",
+                    "view": "Evento",
+                    "pattern": "Evento",
+                    "targetAggregation": "pages",
+                    "controlId": "app"
+                }
+            ]
+        },
+        "rootView": {
+            "viewName": "com.tasa.mareaeventov2.view.Marea",
+            "type": "XML",
+            "async": true,
+            "id": "Marea"
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "com-tasa-mareaeventov2"
+    }
+}

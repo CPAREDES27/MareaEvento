@@ -1,0 +1,79 @@
+sap.ui.define([
+        "sap/ui/core/UIComponent",
+        "sap/ui/Device",
+        "com/tasa/mareaeventov2/model/models"
+    ],
+    function (UIComponent, Device, models) {
+        "use strict";
+
+        return UIComponent.extend("com.tasa.mareaeventov2.Component", {
+            metadata: {
+                manifest: "json"
+            },
+
+            /**
+             * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
+             * @public
+             * @override
+             */
+            init: function () {
+                // call the base component's init function
+                UIComponent.prototype.init.apply(this, arguments);
+
+                // enable routing
+                this.getRouter().initialize();
+
+                // set the device model
+                this.setModel(models.createDeviceModel(), "device");
+
+                // set detalle marea model
+                this.setModel(models.createInitModel(), "DetalleMarea");
+
+                //set combos model
+                this.setModel(models.createCombosModel(), "ComboModel");
+
+                //sett plantas model
+                this.setModel(models.createPlantasModel(), "PlantasModel");
+
+                //set propios model
+                this.setModel(models.ListaMareas(), "ListaMareas");
+
+                //set constants utilitis model
+                this.setModel(models.createConstantsUtility(), "ConstantsUtility");
+
+                //set form model
+                sap.ui.getCore().setModel(models.createFormModel(), "Form");
+
+                //set data session model
+                sap.ui.getCore().setModel(models.createDataSession(), "DataSession");
+
+                //set visible model
+                sap.ui.getCore().setModel(models.createVisibleModel(), "Visible");
+
+                //set resource model i18n
+                sap.ui.getCore().setModel(models.createResourceModel(), "i18n");
+
+                //set Utils model
+                sap.ui.getCore().setModel(models.createUtilsModel(), "Utils");
+
+                //set marea anterior model
+                sap.ui.getCore().setModel(models.createMareaAnteriorModel(), "MareaAnterior");
+
+                //set utilitario model
+                sap.ui.getCore().setModel(models.createUttilitarioModel(), "Utilitario");
+
+                //set filtro model
+                sap.ui.getCore().setModel(models.createFiltroModel(), "Filtro");
+
+                //set Distrib Flota model
+                sap.ui.getCore().setModel(models.createDistribFlotaModel(), "DistribFlota");
+
+                //set constants utiliy model
+                //sap.ui.getCore().setModel(models.createConstantsUtility(), "ConstantsUtility");
+
+                //set constantes model
+                sap.ui.getCore().setModel(models.createConstantesModel(), "Constantes");
+            }
+        });
+    }
+);
